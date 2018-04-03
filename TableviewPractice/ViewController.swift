@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  TableviewPractice
-//
-//  Created by administrator on 29/03/18.
-//  Copyright © 2018 administrator. All rights reserved.
-//
 
 import UIKit
 import RxSwift
@@ -18,13 +11,6 @@ class ViewController: UIViewController {
     
    var details:Variable<[Detail]> = Variable([])
 
-   // var details = [Detail]()
-//    var details = [
-//    Detail(caption:"efgdff",description:"rugfgfjgfjvgfx g"),
-//    Detail(caption:"efgdfffuyggjfdfbg",description:"vcvhrugfgfjgfjvgfx g"),
-//    Detail(caption:"klnbefgdff",description:"qewrqerwuygrdfudbfjhfygurfgyuygyurfuyrfyguretuyreyuyutuyrtyureuytruyetuyretuyuyuyqrwrugfgfjgfjvgfx g"),
-//    ]
-//
     private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
@@ -32,10 +18,7 @@ class ViewController: UIViewController {
         
         tableview.rowHeight = 100
         tableview.estimatedRowHeight = UITableViewAutomaticDimension
-        
-        
-      // let objArray:Observable<[Detail]> = Observable.just(details)
-        
+
         details.asObservable().bind(to: tableview.rx.items(cellIdentifier:"tablecell"))
         {
             tableview,Detail,cell in
@@ -47,8 +30,6 @@ class ViewController: UIViewController {
             }.disposed(by: disposeBag)
         
         self.buttonAddDetails()
-        
-    // Do any additional setup after loading the view, typically from a nib.
     }
   
     func buttonAddDetails()
@@ -70,8 +51,6 @@ class ViewController: UIViewController {
         }.disposed(by: disposeBag)
         
     }
-
-    
 }
 
 
