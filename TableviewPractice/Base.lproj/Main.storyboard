@@ -51,6 +51,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="xCQ-80-7WG" secondAttribute="trailing" constant="5" id="MAN-sr-No5"/>
                                                 <constraint firstAttribute="trailing" secondItem="cne-3A-0pS" secondAttribute="trailing" constant="5" id="Run-oa-vWK"/>
                                                 <constraint firstItem="xCQ-80-7WG" firstAttribute="leading" secondItem="wSc-Bt-h4W" secondAttribute="leading" constant="5" id="cSg-HD-wEh"/>
+                                                <constraint firstAttribute="bottom" secondItem="cne-3A-0pS" secondAttribute="bottom" constant="17.5" id="i24-5f-xIT"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -79,7 +80,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addDetailsBarButton" destination="uKw-Ti-4i7" id="9fk-Fj-tkL"/>
-                        <outlet property="tableview" destination="xxY-2j-vRT" id="Ii0-9C-sav"/>
+                        <outlet property="tableView" destination="xxY-2j-vRT" id="Ii0-9C-sav"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -183,7 +184,7 @@
                         <outlet property="captionLabel" destination="2oJ-Ke-nz8" id="Ldf-av-Wo4"/>
                         <outlet property="descriptionLabel" destination="PU6-aW-K7d" id="m52-BQ-Grj"/>
                         <outlet property="enableLabel" destination="BK2-dR-2Af" id="zZv-Se-nYg"/>
-                        <outlet property="save_button" destination="vRs-Hy-ZE4" id="aNy-5H-q0O"/>
+                        <outlet property="saveButton" destination="vRs-Hy-ZE4" id="aNy-5H-q0O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gu6-8L-tPC" userLabel="First Responder" sceneMemberID="firstResponder"/>

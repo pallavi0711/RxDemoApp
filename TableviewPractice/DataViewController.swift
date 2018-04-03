@@ -12,19 +12,13 @@ let disposeBag = DisposeBag()
 class DataViewController: UIViewController {
 
     @IBOutlet weak var enableLabel: UILabel!
-    
-    @IBOutlet weak var save_button: UIButton!
-    
+    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var captionLabel: UILabel!
-    
     @IBOutlet weak var descriptionLabel: UILabel!
-    
     @IBOutlet weak var captionData: UITextField!
-    
     @IBOutlet weak var descriptionData: UITextView!
     
     let data = PublishSubject<Detail>()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +30,7 @@ class DataViewController: UIViewController {
         let descriptionValid = descriptionData.rx.text.orEmpty
             .map { $0.count >= minimalDescrLength }
             .share(replay: 1)
-        
-        
+    
         captionValid
             .bind(to: captionLabel.rx.isHidden)
             .disposed(by: disposeBag)
@@ -53,30 +46,24 @@ class DataViewController: UIViewController {
             self.enableLabel.text = valid ? "Enable" : "Not enable"
         }).disposed(by: disposeBag)
         
-        everythingValid.bind(to: save_button.rx.isEnabled).disposed(by: disposeBag)
+        everythingValid.bind(to: saveButton.rx.isEnabled).disposed(by: disposeBag)
         
     }
-
     
     @IBAction func save(_ sender: Any) {
-        
         self.data.onNext(Detail(caption: captionData.text!, description: descriptionData.text!))
-        
     }
     
     func validateCaption(caption:String)->Bool{
         let charset = CharacterSet(charactersIn: "1234567890+*=&^{}[]=-<>%$(),.:!_@#")
-        
-        if let _ = caption.rangeOfCharacter(from: charset, options: .caseInsensitive) {
-            
+        if let _ = caption.rangeOfCharacter(from: charset, options: .caseInsensitive)
+        {
             if caption.count <= 1 {
                 print("Executed.............")
                 captionLabel.text = "Invalid Character"
                 isValidString = false
                 return false
-            }
-                
-            else {
+            }else {
                 if isValidString == false{
                     captionLabel.text = "Invalid Character"
                     return false
@@ -86,9 +73,7 @@ class DataViewController: UIViewController {
                     return true
                 }
             }
-            
-        }
-        else {
+        }else {
             if caption.count <= 1 {
                 isValidString = true
             }
